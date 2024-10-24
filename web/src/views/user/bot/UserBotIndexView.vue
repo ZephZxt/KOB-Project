@@ -5,10 +5,80 @@
 </template>
 <script>
 import ContentField from '@/components/ContentField.vue'
-
+import $ from 'jquery'
+import { useStore } from 'vuex'//读取token
 export default {
     components: {
         ContentField
+    },
+    setup() {
+        const store = useStore();
+        // $.ajax({
+        //     url: "http://127.0.0.1:3000/user/bot/add/",
+        //     type: "POST",
+        //     data: {
+        //         title: "标题",
+        //         description: "描述",
+        //         content: "代码",
+        //     },
+        //     headers: {
+        //         Authorization: "Bearer " + store.state.user.token,
+        //     },
+        //     success(resp) {
+        //         console.log(resp);
+        //     },
+        //     error(resp) {
+        //         console.log(resp);
+        //     }
+        // })
+        // $.ajax({
+        //     url: "http://127.0.0.1:3000/user/bot/remove/",
+        //     type: "POST",
+        //     data: {
+        //         bot_id: 4,
+        //     },
+        //     headers: {
+        //         Authorization: "Bearer " + store.state.user.token,
+        //     },
+        //     success(resp) {
+        //         console.log(resp);
+        //     },
+        //     error(resp) {
+        //         console.log(resp);
+        //     }
+        // })
+        // $.ajax({
+        //     url: "http://127.0.0.1:3000/user/bot/update/",
+        //     type: "POST",
+        //     data: {
+        //         bot_id: 1,
+        //         title: "标题2434",
+        //         description: "描述223453453",
+        //         content: "代码2323232",
+        //     },
+        //     headers: {
+        //         Authorization: "Bearer " + store.state.user.token,
+        //     },
+        //     success(resp) {
+        //         console.log(resp);
+        //     },
+        //     error(resp) {
+        //         console.log(resp);
+        //     }
+        // })
+        $.ajax({
+            url: "http://127.0.0.1:3000/user/bot/getlist/",
+            type: "get",
+            headers: {
+                Authorization: "Bearer " + store.state.user.token,
+            },
+            success(resp) {
+                console.log(resp);
+            },
+            error(resp) {
+                console.log(resp);
+            }
+        })
     }
 }
 </script>
