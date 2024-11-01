@@ -34,7 +34,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     }
 
     token = token.substring(7);
-
+    //解析token，如果能解析出来id，则合法；否则不合法
     String userid;
     try {
       Claims claims = JwtUtil.parseJWT(token);
